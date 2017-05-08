@@ -103,16 +103,16 @@ proc means min q1 median q3 max data=cde_2014_analytic_file;
 run;
 proc format;
     value Percent_Eligible_FRPM_K12_bins
-        [to be filled in after analysis file is created]="Q1 FRPM"
-        [to be filled in after analysis file is created]="Q2 FRPM"
-        [to be filled in after analysis file is created]="Q3 FRPM"
-        [to be filled in after analysis file is created]="Q4 FRPM"
+        low-<.39="Q1 FRPM"
+        .39-<.69="Q2 FRPM"
+        .69-<.86="Q3 FRPM"
+        .86-high="Q4 FRPM"
     ;
     value PCTGE1500_bins
-        [to be filled in after analysis file is created]="Q1 SAT_Scores_GE_1500"
-        [to be filled in after analysis file is created]="Q2 SAT_Scores_GE_1500"
-        [to be filled in after analysis file is created]="Q3 SAT_Scores_GE_1500"
-        [to be filled in after analysis file is created]="Q4 SAT_Scores_GE_1500"
+        low-20="Q1 SAT_Scores_GE_1500"
+        20-<37="Q2 SAT_Scores_GE_1500"
+        37-<56.3="Q3 SAT_Scores_GE_1500"
+        56.3-high="Q4 SAT_Scores_GE_1500"
     ;
 run;
 proc freq data=cde_2014_analytic_file;
@@ -120,6 +120,8 @@ proc freq data=cde_2014_analytic_file;
              Percent_Eligible_FRPM_K12
             *PCTGE1500
             / missing norow nocol nopercent
+    ;
+        where not(missing(PCTGE1500))
     ;
     format
         Percent_Eligible_FRPM_K12 Percent_Eligible_FRPM_K12_bins.
@@ -133,7 +135,7 @@ run;
 *
 Question: What are the top ten schools were the number of high school graduates
 taking the SAT exceeds the number of high school graduates completing UC/CSU
-entrance requirements by more than 100?
+entrance requirements?
 
 Rationale: This would help identify schools with significant gaps in
 preparation specific for California's two public university systems, suggesting
@@ -143,11 +145,11 @@ impact.
 Note: This compares the column NUMTSTTAKR from sat15 to the column TOTAL from
 gradaf15.
 
-Methodology: When combining sat15 and gradaf15 during data preparation, take the
-difference between NUMTSTTAKR and gradaf15 for each school and create a new
-variable called excess_sat_takers. Here, use proc sort to create a temporary
-sorted table in descending by excess_sat_takers and then proc print to display
-the first 10 rows of the sorted dataset.
+Methodology: When combining sat15 and gradaf15 during data preparation, take
+the difference between NUMTSTTAKR in sat15 and TOTAL in gradaf15 for each
+school and create a new variable called excess_sat_takers. Here, use proc sort
+to create a temporary sorted table in descending by excess_sat_takers and then
+proc print to display the first 10 rows of the sorted dataset.
 
 Limitations: This methodology does not account for schools with missing data,
 nor does it attempt to validate data in any way, like filtering for values
