@@ -98,7 +98,7 @@ https://github.com/stat6250/team-0_project2/blob/master/data/sat15-edited.xls?ra
     %then
         %do;
             %put Loading dataset &dsn. over the wire now...;
-            filename tempfile TEMP;
+            filename tempfile "%sysfunc(getoption(work))/tempfile.xlsx";
             proc http
                 method="get"
                 url="&url."
