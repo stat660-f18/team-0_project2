@@ -73,6 +73,9 @@ proc print data=cde_2014_analytic_file_sorted(obs=5);
     var frpm_rate_change_2014_to_2015;
 run;
 
+title;
+footnote;
+
 
 *******************************************************************************;
 * Research Question Analysis Starting Point;
@@ -136,6 +139,10 @@ proc freq data=cde_2014_analytic_file;
     ;
 run;
 
+title;
+footnote;
+
+
 *******************************************************************************;
 * Research Question Analysis Starting Point;
 *******************************************************************************;
@@ -184,3 +191,6 @@ proc print data=cde_2014_analytic_file_sorted(obs=10);
     id School_Name;
     var excess_sat_takers;
 run;
+
+title;
+footnote;
