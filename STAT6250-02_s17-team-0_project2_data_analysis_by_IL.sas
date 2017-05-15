@@ -101,20 +101,6 @@ proc means min q1 median q3 max data=cde_2014_analytic_file;
         PCTGE1500
     ;
 run;
-proc format;
-    value Percent_Eligible_FRPM_K12_bins
-        low-<.39="Q1 FRPM"
-        .39-<.69="Q2 FRPM"
-        .69-<.86="Q3 FRPM"
-        .86-high="Q4 FRPM"
-    ;
-    value PCTGE1500_bins
-        low-20="Q1 SAT_Scores_GE_1500"
-        20-<37="Q2 SAT_Scores_GE_1500"
-        37-<56.3="Q3 SAT_Scores_GE_1500"
-        56.3-high="Q4 SAT_Scores_GE_1500"
-    ;
-run;
 proc freq data=cde_2014_analytic_file;
     table
              Percent_Eligible_FRPM_K12
