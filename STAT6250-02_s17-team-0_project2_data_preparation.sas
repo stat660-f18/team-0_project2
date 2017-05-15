@@ -303,3 +303,13 @@ data cde_2014_analytic_file;
         not(missing(School_Name))
     ;
 run;
+
+
+* use proc sort to create a temporary sorted table in descending by
+frpm_rate_change_2014_to_2015;
+proc sort
+        data=cde_2014_analytic_file
+        out=cde_2014_analytic_file_sort_frpm
+    ;
+    by descending frpm_rate_change_2014_to_2015;
+run;
