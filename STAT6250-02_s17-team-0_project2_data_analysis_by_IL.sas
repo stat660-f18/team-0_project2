@@ -36,6 +36,18 @@ title2
 'Rationale: This should help identify schools to consider for new outreach based upon increasing child-poverty levels.'
 ;
 
+footnote1
+"Of the five schools with the greatest increases in percent eligible for free/reduced-price meals between AY2014-15 and AY2015-16, the increase in percent eligible ranges from about 41% to about 55%."
+;
+
+footnote2
+"Given the magnitude of these changes, further investigation should be performed to ensure no data errors are involved."
+;
+
+footnote3
+"However, assuming there are no data issues underlying this analysis, possible explanations for such large increases include changing CA demographics and recent loosening of the rules under which students qualify for free/reduced-price meals."
+;
+
 *
 Note: This compares the column "Percent (%) Eligible Free (K-12)" from frpm1415
 to the column of the same name from frpm1516.
@@ -72,6 +84,18 @@ title1
 
 title2
 'Rationale: This would help inform whether child-poverty levels are associated with college-preparedness rates, providing a strong indicator for the types of schools most in need of college-preparation outreach.'
+;
+
+footnote1
+"As can be seen, there was an extremely high correlation between student poverty and SAT scores in AY2014-15, with lower-poverty schools much more likely to have high proportions of students with combined SAT scores exceeding 1500."
+;
+
+footnote2
+"Possible explanations for this correlation include child-poverty rates tending to be higher at schools with lower overall academic performance and quality of instruction. In addition, students in non-poverish conditions are more likely to have parents able to pay for SAT preparation."
+;
+
+footnote3
+"Given this apparent correlation based on descriptive methodology, further investigation should be performed using inferential methodology to determine the level of statistical significance of the result."
 ;
 
 *
@@ -122,6 +146,18 @@ title1
 
 title2
 "Rationale: This would help identify schools with significant gaps in preparation specific for California's two public university systems, suggesting where focused outreach on UC/CSU college-preparation might have the greatest impact."
+;
+
+footnote1
+"All ten schools listed appear to have extremely large numbers of 12th-graders graduating who have completed the SAT but not the coursework needed to apply for the UC/CSU system"
+;
+
+footnote2
+"Given the magnitude of these numbers, further investigation should be performed to ensure no data errors are involved."
+;
+
+footnote3
+"However, assuming there are no data issues underlying this analysis, possible explanations for such large numbers of 12th-graders completing only the SAT include lack of access to UC/CSU-preparatory coursework, as well as lack of proper counseling for students early enough in high school to complete all necessary coursework."
 ;
 
 *
