@@ -20,7 +20,8 @@ See included file for dataset properties
 X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPATH))-%length(%sysget(SAS_EXECFILENAME))))""";
 
 
-* load external file that generates analytic dataset cde_2014_analytic_file;
+* load external file that generates analytic datasets cde_2014_analytic_file,
+  cde_2014_analytic_file_sort_frpm, and cde_2014_analytic_file_sort_sat;
 %include '.\STAT6250-02_s17-team-0_project2_data_preparation.sas';
 
 
@@ -68,9 +69,15 @@ illegal values, and better handle missing data, e.g., by using a previous year's
 data or a rolling average of previous years' data as a proxy.
 ;
 
-proc print data=cde_2014_analytic_file_sorted(obs=5);
-    id School_Name;
-    var frpm_rate_change_2014_to_2015;
+proc print
+        data=cde_2014_analytic_file_sort_frpm(obs=5)
+    ;
+    id
+        School_Name
+    ;
+    var
+        frpm_rate_change_2014_to_2015
+    ;
 run;
 
 title;
@@ -119,19 +126,16 @@ Followup Steps: A possible follow-up to this approach could use an inferential
 statistical technique like linear regression.
 ;
 
-proc means min q1 median q3 max data=cde_2014_analytic_file;
-    var
-        Percent_Eligible_FRPM_K12
-        PCTGE1500
+proc freq
+        data=cde_2014_analytic_file
     ;
-run;
-proc freq data=cde_2014_analytic_file;
     table
              Percent_Eligible_FRPM_K12
             *PCTGE1500
             / missing norow nocol nopercent
     ;
-        where not(missing(PCTGE1500))
+        where
+            not(missing(PCTGE1500))
     ;
     format
         Percent_Eligible_FRPM_K12 Percent_Eligible_FRPM_K12_bins.
@@ -187,9 +191,15 @@ handle missing data, e.g., by using a previous year's data or a rolling average
 of previous years' data as a proxy.
 ;
 
-proc print data=cde_2014_analytic_file_sorted(obs=10);
-    id School_Name;
-    var excess_sat_takers;
+proc print
+        data=cde_2014_analytic_file_sort_sat(obs=10)
+    ;
+    id
+        School_Name
+    ;
+    var
+        excess_sat_takers
+    ;
 run;
 
 title;
