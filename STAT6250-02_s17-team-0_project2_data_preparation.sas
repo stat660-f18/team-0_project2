@@ -313,3 +313,13 @@ proc sort
     ;
     by descending frpm_rate_change_2014_to_2015;
 run;
+
+
+* use proc sort to create a temporary sorted table in descending by
+excess_sat_takers;
+proc sort
+        data=cde_2014_analytic_file
+        out=cde_2014_analytic_file_sort_sat
+    ;
+    by descending excess_sat_takers;
+run;
