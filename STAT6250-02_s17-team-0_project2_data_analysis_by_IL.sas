@@ -27,13 +27,16 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 *******************************************************************************;
 * Research Question Analysis Starting Point;
 *******************************************************************************;
+
+title1
+'Research Question: What are the top five schools that experienced the biggest increase in "Percent (%) Eligible Free (K-12)" between AY2014-15 and AY2015-16?'
+;
+
+title2
+'Rationale: This should help identify schools to consider for new outreach based upon increasing child-poverty levels.'
+;
+
 *
-Question: What are the top five schools that experienced the biggest increase
-in "Percent (%) Eligible Free (K-12)" between AY2014-15 and AY2015-16?
-
-Rationale: This should help identify schools to consider for new outreach based
-upon increasing child-poverty levels.
-
 Note: This compares the column "Percent (%) Eligible Free (K-12)" from frpm1415
 to the column of the same name from frpm1516.
 
@@ -62,15 +65,16 @@ run;
 *******************************************************************************;
 * Research Question Analysis Starting Point;
 *******************************************************************************;
+
+title1
+'Research Question: Can "Percent (%) Eligible FRPM (K-12)" be used to predict the proportion of high school graduates earning a combined score of at least 1500 on the SAT?'
+;
+
+title2
+'Rationale: This would help inform whether child-poverty levels are associated with college-preparedness rates, providing a strong indicator for the types of schools most in need of college-preparation outreach.'
+;
+
 *
-Question: Can "Percent (%) Eligible FRPM (K-12)" be used to predict the
-proportion of high school graduates earning a combined score of at least 1500
-on the SAT?
-
-Rationale: This would help inform whether child-poverty levels are associated
-with college-preparedness rates, providing a strong indicator for the types of
-schools most in need of college-preparation outreach.
-
 Note: This compares the column "Percent (%) Eligible Free (K-12)" from frpm1415
 to the column PCTGE1500 from sat15.
 
@@ -111,16 +115,16 @@ run;
 *******************************************************************************;
 * Research Question Analysis Starting Point;
 *******************************************************************************;
+
+title1
+'Research Question: What are the top ten schools were the number of high school graduates taking the SAT exceeds the number of high school graduates completing UC/CSU entrance requirements?'
+;
+
+title2
+"Rationale: This would help identify schools with significant gaps in preparation specific for California's two public university systems, suggesting where focused outreach on UC/CSU college-preparation might have the greatest impact."
+;
+
 *
-Question: What are the top ten schools were the number of high school graduates
-taking the SAT exceeds the number of high school graduates completing UC/CSU
-entrance requirements?
-
-Rationale: This would help identify schools with significant gaps in
-preparation specific for California's two public university systems, suggesting
-where focused outreach on UC/CSU college-preparation might have the greatest
-impact.
-
 Note: This compares the column NUMTSTTAKR from sat15 to the column TOTAL from
 gradaf15.
 
@@ -139,7 +143,6 @@ statistics computed do not include any possible illegal values, and better
 handle missing data, e.g., by using a previous year's data or a rolling average
 of previous years' data as a proxy.
 ;
-
 
 proc print data=cde_2014_analytic_file_sorted(obs=10);
     id School_Name;
