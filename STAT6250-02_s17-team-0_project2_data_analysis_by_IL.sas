@@ -39,10 +39,10 @@ to the column of the same name from frpm1516.
 
 Methodology: When combining frpm1415 with frpm1516 during data preparation,
 take the difference of values of "Percent (%) Eligible Free (K-12)" for each
-school and create a new variable called frpm_rate_change_2014_to_2015. Here,
+school and create a new variable called frpm_rate_change_2014_to_2015. Then,
 use proc sort to create a temporary sorted table in descending by
-frpm_rate_change_2014_to_2015 and then proc print to display the first five
-rows of the sorted dataset.
+frpm_rate_change_2014_to_2015. Finally, use proc print here to display the
+first five rows of the sorted dataset.
 
 Limitations: This methodology does not account for schools with missing data,
 nor does it attempt to validate data in any way, like filtering for percentages
@@ -52,13 +52,6 @@ Followup Steps: More carefully clean values in order to filter out any possible
 illegal values, and better handle missing data, e.g., by using a previous year's
 data or a rolling average of previous years' data as a proxy.
 ;
-
-proc sort
-        data=cde_2014_analytic_file
-        out=cde_2014_analytic_file_sorted
-    ;
-    by descending frpm_rate_change_2014_to_2015;
-run;
 
 proc print data=cde_2014_analytic_file_sorted(obs=5);
     id School_Name;
@@ -133,9 +126,9 @@ gradaf15.
 
 Methodology: When combining sat15 and gradaf15 during data preparation, take
 the difference between NUMTSTTAKR in sat15 and TOTAL in gradaf15 for each
-school and create a new variable called excess_sat_takers. Here, use proc sort
-to create a temporary sorted table in descending by excess_sat_takers and then
-proc print to display the first 10 rows of the sorted dataset.
+school and create a new variable called excess_sat_takers. Then, use proc sort
+to create a temporary sorted table in descending by excess_sat_takers. Finally,
+use proc print here to display the first 10 rows of the sorted dataset.
 
 Limitations: This methodology does not account for schools with missing data,
 nor does it attempt to validate data in any way, like filtering for values
@@ -147,12 +140,6 @@ handle missing data, e.g., by using a previous year's data or a rolling average
 of previous years' data as a proxy.
 ;
 
-proc sort
-        data=cde_2014_analytic_file
-        out=cde_2014_analytic_file_sorted
-    ;
-    by descending excess_sat_takers;
-run;
 
 proc print data=cde_2014_analytic_file_sorted(obs=10);
     id School_Name;
